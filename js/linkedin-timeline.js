@@ -33,6 +33,7 @@ var timeLine = function (json) {
     var dateIterator = new monthYearType(this.datesAndLabelsObj.min);
     var lastDate     = new monthYearType(this.datesAndLabelsObj.max);
   
+
     while (dateIterator.lessOrEqualTo(lastDate)) {
 
       var monthElement = document.createElement("div");
@@ -52,7 +53,7 @@ var timeLine = function (json) {
       }
 
       rowElement.appendChild(monthElement);
-      dateIterator = dateIterator.next();
+      dateIterator.next();
 
     }
     
