@@ -9,8 +9,11 @@ var DatesAndLabels = function (json) {
 
     for (var i = 0; i < this.json.length; i++) {
 
-      var beginToNumber = this.dateToNumber(this.json[i].begin);
-      var endToNumber   = this.dateToNumber(this.json[i].end);
+      var beginDate = new monthYearType(this.json[i].begin);
+      var endDate   = new monthYearType(this.json[i].end);
+
+      var beginToNumber = beginDate.toNumber();
+      var endToNumber   = endDate.toNumber();
       
       if (beginToNumber > endToNumber) 
         throw "There's a problem with the date ("+ i +") of the string";
