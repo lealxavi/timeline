@@ -1,6 +1,8 @@
 var DatesAndLabels = function (json) {
 
   this.json   = json;
+  this.min    = null; // values assigned after parse()
+  this.max    = null;
 
   this.parse = function () {
   
@@ -18,36 +20,20 @@ var DatesAndLabels = function (json) {
       if (beginToNumber > endToNumber) 
         throw "There's a problem with the date ("+ i +") of the string";
 
-      this.json[i].months = this.monthsBetweenTwoDates(this.json[i].begin,this.json[i].end);
+      this.json[i].months = monthYearType.monthsBetweenTwoDates(beginDate,endDate);
 
       if (beginToNumber < tmpMin) {
-        this.min = this.json[i].begin;
+        this.min = beginDate;
         tmpMin   = beginToNumber;
       }
       if (endToNumber > tmpMax) {
-        this.max = this.json[i].end;
+        this.max = endDate;
         tmpMax   = endToNumber;
       }
     }
-
-    this.months = this.monthsBetweenTwoDates(this.min,this.max);
+    this.months = monthYearType.monthsBetweenTwoDates(this.min,this.max);
   }
-
-  this.monthsBetweenTwoDates = function (beginDate, endDate) {
-    var baseYear   = parseInt(beginDate.split("/")[1]);
-    var lastYear   = parseInt(endDate.split("/")[1]);
-
-    var beginMonth = parseInt(beginDate.split("/")[0]);
-    var endMonth   = parseInt(endDate.split("/")[0]);
-
-
-    return (((lastYear-baseYear) * 12) + endMonth)-beginMonth+1;
-  }
-
-  this.dateToNumber = function (date) {
-    return parseInt(date.split("/")[1] + date.split("/")[0]);
-  }
-
+  
   this.parse();
 
 };

@@ -30,8 +30,8 @@ var timeLine = function (json) {
 
     rowElement.appendChild(labelElement);
 
-    var dateIterator = new monthYearType(this.datesAndLabelsObj.min);
-    var lastDate     = new monthYearType(this.datesAndLabelsObj.max);
+    var dateIterator = new monthYearType(this.datesAndLabelsObj.min.toString());
+    var lastDate     = new monthYearType(this.datesAndLabelsObj.max.toString());
   
 
     while (dateIterator.lessOrEqualTo(lastDate)) {

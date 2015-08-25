@@ -18,8 +18,15 @@ var monthYearType = function(dateString) {
   }
 
   this.toNumber = function () {
-    monthString = (this.month<10?"0":"") + this.month.toString();
-    return parseInt(this.year.toString() + monthString);
+    return parseInt(this.year.toString() + this.monthToString());
+  }
+
+  this.toString = function () {
+    return this.monthToString() + "/" + this.year.toString();
+  }
+
+  this.monthToString = function () {
+    return (this.month<10?"0":"") + this.month.toString();
   }
 
   this.lessOrEqualTo = function (dateToCompare) {
@@ -34,5 +41,8 @@ var monthYearType = function(dateString) {
     var dateToNumber = this.toNumber(); 
     return startDate.toNumber() <= dateToNumber && dateToNumber <= endDate.toNumber(); 
   }
+}
 
+monthYearType.monthsBetweenTwoDates = function (begin, end) {
+    return (((end.year-begin.year) * 12) + end.month)-begin.month+1;
 }
