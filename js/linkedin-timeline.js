@@ -52,7 +52,7 @@ var timeLine = function (json) {
         monthElement.className += " middle-month"; 
       }
 
-      rowElement.appendChild(monthElement);
+      rowElement.appendChild(monthElement);      
       dateIterator.next();
 
     }

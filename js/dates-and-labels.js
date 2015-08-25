@@ -1,9 +1,6 @@
 var DatesAndLabels = function (json) {
 
   this.json   = json;
-  this.min    = null;
-  this.max    = null;
-  this.months = null;
 
   this.parse = function () {
   
