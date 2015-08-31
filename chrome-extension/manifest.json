@@ -1,5 +1,6 @@
 // More information about manifest -> https://developer.chrome.com/extensions/getstarted#declaration
 // How to move on -> https://developer.chrome.com/extensions/getstarted#next-steps
+// https://developer.chrome.com/extensions/overview
 
 {
   "manifest_version": 2,
