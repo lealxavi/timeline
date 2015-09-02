@@ -1,7 +1,7 @@
 //https://developer.chrome.com/extensions/api_index
 
 function getUserName(tabId) {
-	chrome.tabs.executeScript(tabId,{ code : "document.querySelector('#name .full-name').innerHTML" },function(results) {
+	chrome.tabs.executeScript(tabId,{ file : "linkedin-scraping.js", allFrames : true },function(results) {
 		console.log(results);
 	});
 }
